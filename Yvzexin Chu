@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .slide { display: none; }
+  .active { display: block; }
+  img { width: 100%; }
+</style>
+</head>
+<body>
+
+<img class="slide active" src="img1.jpg">
+<img class="slide" src="img2.jpg">
+<script>
+let index = 0;
+const slides = document.querySelectorAll('.slide');
+
+function showSlide() {
+  slides.forEach(slide => slide.classList.remove('active'));
+  slides[index].classList.add('active');
+  index = (index + 1) % slides.length;
+  setTimeout(showSlide, 2000); // 2 seconds per slide
+}
+
+showSlide();
+</script>
+
+</body>
+</html>
